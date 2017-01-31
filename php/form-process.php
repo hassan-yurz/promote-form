@@ -48,8 +48,12 @@ $Body .= "Account Number: ";
 $Body .= $acctnum;
 $Body .= "\n";
 
+$headers = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-Transfer-Encoding: 8bit' . "\r\n";
+$headers .= 'Content-Type: text/plain; charset=UTF-8' . "\r\n";
+
 // send email
-$success = mail($EmailTo, $Subject, $Body, "From:".$email);
+$success = mail($EmailTo, $Subject, $Body, $headers, "From:".$email);
 
 // redirect to success page
 if ($success && $errorMSG == ""){
