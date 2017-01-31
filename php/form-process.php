@@ -17,10 +17,10 @@ if (empty($_POST["last_name"])) {
 }
 
 // ACCOUNT NUMBER
-if (empty($_POST["acct_num"])) {
+if (empty($_POST["acctnum"])) {
     $errorMSG .= "Account number is required ";
 } else {
-    $acctnum = $_POST["acct_num"];
+    $acctnum = $_POST["acctnum"];
 }
 
 // EMAIL
